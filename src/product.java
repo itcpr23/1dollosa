@@ -30,4 +30,24 @@ public class product {
          }
          
      }
+     
+     
+     public void delete(int id){
+         try {
+             Class.forName(conn.forname());
+             Connection con = DriverManager.getConnection(conn.driver(),conn.uname(),conn.upass());
+             PreparedStatement ps = con.prepareStatement("delete from products where id =?");
+             ps.setInt(1, id);
+             ps.executeUpdate();
+            
+         } catch (ClassNotFoundException ex) {
+             Logger.getLogger(product.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (SQLException ex) {
+             Logger.getLogger(product.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         
+     }
+     
+     
+     
 }
