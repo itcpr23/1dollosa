@@ -48,6 +48,12 @@ public class registerframe extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
+        addfname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addfnameActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("FIRSTNAME:");
 
         jLabel2.setText("LASTNAME:");
@@ -199,6 +205,10 @@ else{
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void addfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addfnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addfnameActionPerformed
 
     /**
      * @param args the command line arguments
