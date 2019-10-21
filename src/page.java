@@ -314,8 +314,25 @@ else{
     }//GEN-LAST:event_searchActionPerformed
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
-
-            // TODO add your handling code here:
+DefaultTableModel table = (DefaultTableModel) mytable.getModel(); table.setRowCount(0);
+    try {
+        Class.forName(conn.forname());
+        Connection con = DriverManager.getConnection(conn.driver(),conn.uname(),conn.upass());
+        PreparedStatement ps = con.prepareStatement("select * from products where pname like ? or id like ?");
+        ps.setString(1, "%"+search.getText()+"%");
+        ps.setString(2, "%"+search.getText()+"%");
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            table.addRow(new Object[]{rs.getString("id"),rs.getString("pname"),rs.getString("pquantity"),rs.getString("pprice")});
+        }
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(page.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException ex) {
+        Logger.getLogger(page.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    
+            
     }//GEN-LAST:event_searchKeyReleased
 
     private void addprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addprodActionPerformed
