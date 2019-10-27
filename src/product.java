@@ -68,5 +68,21 @@ public class product {
      }
      
      
-     
+      public void editqty(int id, int qty){
+        try {
+            Class.forName(conn.forname());
+            Connection con = DriverManager.getConnection(conn.driver(),conn.uname(),conn.upass());
+            PreparedStatement ps = con.prepareStatement("update product set prod_quantity = (quantity+?) where prod_id = ?");
+            ps.setInt(1, qty);
+            ps.setInt(2, id);
+       
+            ps.executeUpdate();
+            
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(product.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
