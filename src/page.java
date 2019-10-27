@@ -347,7 +347,13 @@ DefaultTableModel table = (DefaultTableModel) mytable.getModel(); table.setRowCo
     }//GEN-LAST:event_searchKeyReleased
 
     private void addprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addprodActionPerformed
-       // TODO add your handling code here:
+      int tbl = mytable.getSelectedRow();
+      if(tbl==-1){
+  JOptionPane.showMessageDialog(rootPane, "Please Select Product", "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);  
+}else{
+    this.setVisible(true);
+    
+      }
     }//GEN-LAST:event_addprodActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -366,11 +372,11 @@ else{
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    new product().editqty(prod_id, Integer.parseInt(addqty.getValue().toString()));  
-    mytable.setVisible(false);
+    new product ().editqty(prod_id, Integer.parseInt(addqty.getValue().toString()));  
+    mytable.setVisible(true);
     refresh();
     
-    int prod_id = 0;
+    int id = 0;
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed

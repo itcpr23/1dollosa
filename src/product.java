@@ -72,7 +72,7 @@ public class product {
         try {
             Class.forName(conn.forname());
             Connection con = DriverManager.getConnection(conn.driver(),conn.uname(),conn.upass());
-            PreparedStatement ps = con.prepareStatement("update product set prod_quantity = (quantity+?) where prod_id = ?");
+            PreparedStatement ps = con.prepareStatement("update products set pquantity = (pquantity+?) where id = ?");
             ps.setInt(1, qty);
             ps.setInt(2, id);
        

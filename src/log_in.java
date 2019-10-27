@@ -29,7 +29,8 @@ String password = new String(pword.getPassword());
 
 int x = use.enter(username, password);
 if(x==1){
-    System.out.println("hello");
+   this.setVisible(false);
+   new page().setVisible(true);
 }
 else{
     JOptionPane.showMessageDialog(this, "Incorrect username or password","error",0);
